@@ -1,0 +1,26 @@
+openapi: 3.0.3
+info:
+  title: POC of OpenAPI
+  version: "0.1"
+servers:
+- url: http://localhost:8000
+paths:
+  /sum:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sumresponse'
+          description: Testing open api
+components:
+  schemas:
+    sumresponse:
+      example:
+        answer: Testing
+      properties:
+        answer:
+          example: Testing
+          type: string
+      type: object
