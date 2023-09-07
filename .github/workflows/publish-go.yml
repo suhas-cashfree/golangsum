@@ -27,11 +27,11 @@ jobs:
           git config --global user.name "Suhas Cashfree"
           go list -m
           go test -v ./...
-          go list -m all
+          go list -m all -mod=readonly
           go mod tidy
           go mod vendor
-          go list -m all
-          go list -m
+          go list -m all -mod=readonly
+          go list -m -mod=readonly
           go list -m -json all | jq -r .Path > golist.txt
           MODULE_NAME=$(cat golist.txt)
           git tag -l --points-at HEAD | xargs -I@ -n 1 echo "//proxy.golang.org/${MODULE_NAME} => @#latest" >> gomod.txt
