@@ -30,6 +30,8 @@ type APIResponse struct {
 	// This is provided here as the raw response.Body() reader will have already
 	// been drained.
 	Payload []byte `json:"-"`
+
+	NewPayload string `json:"newPayload"`
 }
 
 // NewAPIResponse returns a new APIResponse object.
