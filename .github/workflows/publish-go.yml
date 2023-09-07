@@ -25,18 +25,7 @@ jobs:
         run: |
           git config --global user.email "suhas.g@cashfree.com"
           git config --global user.name "Suhas Cashfree"
-          go list -m
-          go test -v ./...
-          go list -m all
           go mod tidy
-          go list -m all
-          go list -m
-          go list -m -json all | jq -r .Path > golist.txt
-          MODULE_NAME=$(cat golist.txt)
-          git tag -l --points-at HEAD | xargs -I@ -n 1 echo "//proxy.golang.org/${MODULE_NAME} => @#latest" >> gomod.txt
-          echo -e "$(cat gomod.txt)\n$(cat go.mod)" > go.mod
-          git add go.mod go.sum
-          git commit -m "Publishing module"
-          git push origin HEAD:main
+          GOPROXY=proxy.golang.org go list -m github.com/suhas-cashfree/golangsum@0.0.10
         env:
           GOPROXY: proxy.golang.org
