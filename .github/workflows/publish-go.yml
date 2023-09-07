@@ -29,7 +29,6 @@ jobs:
           go test -v ./...
           go list -m all
           go mod tidy
-          go mod vendor -mod=readonly
           go list -m all
           go list -m
           go list -m -json all | jq -r .Path > golist.txt
