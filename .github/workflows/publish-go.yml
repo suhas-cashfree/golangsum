@@ -2,8 +2,8 @@ name: Publish Go Module
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
 
 jobs:
   publish:
@@ -26,6 +26,6 @@ jobs:
           git config --global user.email "suhas.g@cashfree.com"
           git config --global user.name "Suhas Cashfree"
           go mod tidy
-          GOPROXY=proxy.golang.org go list -m github.com/suhas-cashfree/golangsum@0.0.10
+          GOPROXY=proxy.golang.org go list -m github.com/suhas-cashfree/golangsum@0.0.12
         env:
           GOPROXY: proxy.golang.org
