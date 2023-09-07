@@ -26,6 +26,6 @@ jobs:
           git config --global user.email "suhas.g@cashfree.com"
           git config --global user.name "Suhas Cashfree"
           go mod tidy
-          GOPROXY=proxy.golang.org go list -m github.com/suhas-cashfree/golangsum@0.0.12
+          GOPROXY=proxy.golang.org go list -m github.com/suhas-cashfree/golangsum@v0.0.13
         env:
           GOPROXY: proxy.golang.org
